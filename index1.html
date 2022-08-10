@@ -1,29 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>后台主页</title>
-  <!-- 导入 layui 的样式表 -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>layout 管理系统大布局 - Layui</title>
+  <!-- <link rel="stylesheet" href="./layui/css/layui.css"> -->
+  <!-- 导入 layUI 的样式表 -->
   <link rel="stylesheet" href="/assets/lib/layui/css/layui.css" />
   <!-- 导入第三方图标库 -->
   <link rel="stylesheet" href="/assets/fonts/iconfont.css" />
   <!-- 导入自己的样式表 -->
-  <link rel="stylesheet" href="/assets/css/index.css" />
+  <link rel="stylesheet" href="/assets/css/index1.css" />
 </head>
 
-<body class="layui-layout-body">
+<body>
   <div class="layui-layout layui-layout-admin">
     <div class="layui-header">
       <div class="layui-logo">
-        <img src="/assets/images/logo.png" alt="" />
+        <img src="/assets/images/logo.png" alt="logo" />
       </div>
-      <!-- 头部区域（可配合layui已有的水平导航） -->
+      <!-- 头部区域（可配合layui 已有的水平导航） -->
       <ul class="layui-nav layui-layout-right">
         <li class="layui-nav-item">
           <a href="javascript:;" class="userinfo">
-            <img src="http://t.cn/RCzsdCq" class="layui-nav-img" />
+            <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
             <span class="text-avatar">A</span>
             个人中心
           </a>
@@ -34,7 +35,9 @@
           </dl>
         </li>
         <li class="layui-nav-item">
-          <a href="javascript:;" id="btnLogout"><span class="iconfont icon-tuichu"></span>退出</a>
+          <a href="javascript:;">
+            <span class="iconfont icon-tuichu"></span>退出
+          </a>
         </li>
       </ul>
     </div>
@@ -90,17 +93,12 @@
 
     <div class="layui-footer">
       <!-- 底部固定区域 -->
-      © www.itheima.com - 黑马程序员
+      © www.107.0.0.1.com - 程序员
     </div>
   </div>
-  <!-- 导入 layui 的JS文件 -->
   <script src="/assets/lib/layui/layui.all.js"></script>
-  <!-- 导入 jQuery -->
-  <script src="/assets/lib/jquery.js"></script>
-  <!-- 导入自己封装的 baseAPI.js -->
-  <script src="/assets/js/baseAPI.js"></script>
-  <!-- 导入自己的 js 文件 -->
-  <script src="/assets/js/index.js"></script>
+
+
 </body>
 
 </html>
