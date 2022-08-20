@@ -94,7 +94,7 @@ $(function () {
         // 6. 发起 ajax 数据请求
         // publishArticle(fd)
         if (id) {
-          // fd.append('id', id)
+          fd.append('Id', id)
           console.log('fd:', fd)
           publishArticle(fd, '/my/article/edit')
         } else {
@@ -125,7 +125,10 @@ $(function () {
           // 提示框关闭后自哦动自动执行此函数
           // 跳转到文章列表
           // 获取父页面index.html中“文章列表”按钮标签
-          window.parent.document.getElementById("article-list").click();
+          // window.parent.document.getElementById("article-list").click();
+          window.parent.setNavSelected('#article-list', '#article-pub')
+          console.log(window.parent)
+          location.href = '/article/art_list.html'
         })
         // layer.msg('操作成功！')
         // // window.parent.setNavSelected('#article-list', '#article-pub')
@@ -133,6 +136,7 @@ $(function () {
         // // 发布文章成功后，跳转到文章列表页面
         // location.href = '/article/art_list.html'
       }
+
     })
   }
 
@@ -141,19 +145,20 @@ $(function () {
     $('.layui-card-header').html('修改文章')
     $.ajax({
       method: 'GET',
-      url: `/my/article/${id}`,
+      url: `/my/article/get/${id}`,
       success: function (res) {
         if (res.status !== 0) {
           return layer.msg(res.msg)
         }
         form.val('formPublish', res.data)
-        console.log('res.data:', res.data)
+        // console.log('res.data:', res.data)
         // console.log('content:', res.data.content)
         // newImgURL: blob:http://127.0.0.1:5500/717fd56e-a44c-47f0-bdef-69c7c276e767
         //  富文本赋值：tinyMCE.activeEditor.setContent(“需要添加的内容”); 富文本获取值：var richText = tinymce.get(“rich_body”).getContent(); 
         tinyMCE.activeEditor.setContent(res.data.content)
 
-        $image.cropper('destroy').attr("src", "http://www.liulongbin.top:3007" + res.data.cover_img).cropper(options)
+        // $image.cropper('destroy').attr("src", "http://www.liulongbin.top:3007" + res.data.cover_img).cropper(options)
+        $image.cropper('destroy').attr("src", "http://127.0.0.1:3007" + res.data.cover_img).cropper(options)
       }
     })
   }

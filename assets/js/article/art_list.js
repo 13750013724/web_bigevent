@@ -28,8 +28,8 @@ $(function () {
   let q = {
     pagenum: 1, // 页码值，默认请求第一页的数据
     pagesize: 2, // 每页显示几条数据，默认每页显示2条
-    cate_id: '', // 文章分类的 Id
-    state: '' // 文章的发布状态
+    // cate_id: '', // 文章分类的 Id
+    // state: '' // 文章的发布状态
   }
 
   initTable()
@@ -124,8 +124,19 @@ $(function () {
     let cate_id = $('[name=cate_id]').val()
     let state = $('[name=state]').val()
     // 为查询参数对象 q 中对应的属性赋值
-    q.cate_id = cate_id
-    q.state = state
+    // q.cate_id = cate_id
+    // q.state = state
+    if (cate_id) {
+      q.cate_id = cate_id
+    } else {
+      delete q.cate_id
+    }
+
+    if (state) {
+      q.state = state
+    } else {
+      delete q.state
+    }
     console.log(q)
     // 根据最新的筛选条件,重渲染表格的数据
     initTable()
@@ -148,11 +159,11 @@ $(function () {
       // 1. 点击页码的时候，会触发 jump 回调
       // 2. 只要调用了 laypage.render() 方法，就会触发 jump 回调
       jump: function (obj, first) {
-        console.log(first)
+        // console.log(first)
         // 可以通过 first 的值，来判断是通过哪种方式，触发的 jump 回调
         // 如果 first 的值为 true，证明是方式2触发的
         // 否则就是方式1触发的
-        console.log(obj.curr)
+        // console.log(obj.curr)
         // 把最新的页码值，赋值到 q 这个查询参数对象中
         q.pagenum = obj.curr
         // 把最新的条目数，赋值到 q 这个查询参数对象的 pagesize 属性中
